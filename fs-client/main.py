@@ -18,7 +18,7 @@ class WebSocketClient:
 
     def send(self, message):
         try:
-            print("Sending message:", json.dumps(message, indent=2))
+            # print("Sending message:", json.dumps(message, indent=2))
             self.ws.send(json.dumps(message))
             response = self.ws.recv()
             return json.loads(response)
@@ -75,38 +75,45 @@ def main():
                 result = client.list_tools()
                 print("Available tools:", result)
             else:
-                print(f"Path argument received: {args.path}")
-                print(type({args.path}))
+                # print(type({args.path}))
                 result = client.call_tool("list_directory", {"name": "list_directory", "arguments": {"path": args.path}})
-                print("Directory contents:", result)
+                # print(type(result))
+                contents = result['result']['content'][0]['text']
+                # print(type(contents))
+                print("Directory contents:", contents)
 
         elif args.command == 'read':
             if args.path is None:
                 print("Error: --path is required for read command.")
             else:
                 result = client.call_tool("read_file", {"name": "read_file", "arguments": {"path": args.path}})
-                print("File contents:", result)
+                contents = result['result']['content'][0]['text']
+                print("File contents:", contents)
 
         elif args.command == 'write':
             if args.path is None or args.content is None:
                 print("Error: --path and --content are required for write command.")
             else:
                 result = client.call_tool("write_file", {"name": "write_file", "arguments": {"path": args.path, "content": args.content}})
-                print(result)
+                contents = result['result']['content'][0]['text']
+                print(contents)
 
         elif args.command == 'search':
             if args.path is None or args.pattern is None:
                 print("Error: --path and --pattern are required for search command.")
             else:
                 result = client.call_tool("search_files", {"name": "search_files", "arguments": {"path": args.path, "pattern": str(args.pattern)}})
-                print("Search results:", result)
+                contents = result['result']['content'][0]['text']
+
+                print("Search results:", contents)
 
         elif args.command == 'create_dir':
             if args.path is None:
                 print("Error: --path is required for create_dir command.")
             else:
                 result = client.call_tool("create_directory", {"name": "create_directory", "arguments": {"path": args.path}})  # Assuming this method is implemented
-                print(result)
+                contents = result['result']['content'][0]['text']
+                print(contents)
 
         else:
             print("Error: Invalid command.")
