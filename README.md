@@ -31,7 +31,9 @@ This Python client allows you to interact with a WebSocket server designed for f
    ```
 3. Open new tab in terminal, change directory to fs-client:
    ```bash
-   ./setup.sh ```
+   ./setup.sh 
+   ```
+
 4. You are ready to use the client!
 
 ## Usage
