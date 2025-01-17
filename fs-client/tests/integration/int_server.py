@@ -1,7 +1,13 @@
-import unittest, subprocess, time, sys, os
+import os
+import subprocess
+import sys
+import time
+import unittest
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
-from main import WebSocketClient  
+from main import WebSocketClient
+
 
 class TestWebSocketClientIntegration(unittest.TestCase):
 
@@ -38,7 +44,7 @@ class TestWebSocketClientIntegration(unittest.TestCase):
         client = WebSocketClient('localhost', 8765)
         client.connect()
         try:
-            response = client.call_tool("create_directory", {"name": "create_directory", "arguments": {"path": "/users/ethanwilliams/documents/code/serverfarm/file-system-ws/fs-test/"}})
+            response = client.call_tool("create_directory", {"name": "create_directory", "arguments": {"path": "/users/ethanwilliams/documents/code/serverfarm/file-system-ws/fs-test/"}}) # noqa: E501
             expected_keys = ["jsonrpc", "id", "result"]
             for key in expected_keys:
                 self.assertIn(key, response)

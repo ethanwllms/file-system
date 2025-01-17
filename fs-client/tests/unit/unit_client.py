@@ -1,8 +1,14 @@
-import pytest, sys, os, json
-from unittest.mock import patch, MagicMock
+import json
+import os
+import sys
+from unittest.mock import MagicMock, patch
+
+import pytest
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 from main import WebSocketClient
+
 
 class TestWebSocketClient:
 

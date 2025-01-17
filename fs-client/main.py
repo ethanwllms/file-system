@@ -1,7 +1,9 @@
+import argparse
 import json
 import sys
-import argparse
+
 import websocket
+
 
 class WebSocketClient:
     def __init__(self, host='localhost', port=8765):
@@ -94,7 +96,7 @@ def main():
             if args.path is None or args.content is None:
                 print("Error: --path and --content are required for write command.")
             else:
-                result = client.call_tool("write_file", {"name": "write_file", "arguments": {"path": args.path, "content": args.content}})
+                result = client.call_tool("write_file", {"name": "write_file", "arguments": {"path": args.path, "content": args.content}}) # noqa: E501
                 contents = result['result']['content'][0]['text']
                 print(contents)
 
@@ -102,7 +104,7 @@ def main():
             if args.path is None or args.pattern is None:
                 print("Error: --path and --pattern are required for search command.")
             else:
-                result = client.call_tool("search_files", {"name": "search_files", "arguments": {"path": args.path, "pattern": str(args.pattern)}})
+                result = client.call_tool("search_files", {"name": "search_files", "arguments": {"path": args.path, "pattern": str(args.pattern)}}) # noqa: E501
                 contents = result['result']['content'][0]['text']
 
                 print("Search results:\n", contents)
@@ -111,7 +113,7 @@ def main():
             if args.path is None:
                 print("Error: --path is required for create_dir command.")
             else:
-                result = client.call_tool("create_directory", {"name": "create_directory", "arguments": {"path": args.path}})  # Assuming this method is implemented
+                result = client.call_tool("create_directory", {"name": "create_directory", "arguments": {"path": args.path}})  # Assuming this method is implemented # noqa: E501
                 contents = result['result']['content'][0]['text']
                 print(contents)
 

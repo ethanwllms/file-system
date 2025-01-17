@@ -1,8 +1,13 @@
-import unittest, sys, os, json
+import json
+import os
+import sys
+import unittest
 from unittest.mock import patch
+
 sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..')))
 
 from main import parse_arguments
+
 
 class TestArgumentParsing(unittest.TestCase):
 
