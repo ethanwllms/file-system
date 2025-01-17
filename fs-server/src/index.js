@@ -202,7 +202,7 @@ wss.on('connection', (ws) => {
 
                     case "call_tool":
                         const { name, arguments: args } = params;
-                        console.log(args.path);
+                        // console.log(args.path);
                         switch (name) {
                             case "read_file": {
                                 const validPath = await validatePath(args.path);
