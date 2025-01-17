@@ -65,7 +65,6 @@ async function validateAndCreateDirectory(requestedPath, allowedDirectories) {
 
 // Example integration into WebSocket handler
 async function handleCreateDirectory(params, allowedDirectories) {
-    console.log('Made it to creation function..')
     console.log(params);
     if (!params || typeof params === 'undefined') {
         throw new Error("Invalid parameters");
@@ -78,7 +77,7 @@ async function handleCreateDirectory(params, allowedDirectories) {
 
 // Security utilities
 async function validatePath(requestedPath) {
-    console.log(requestedPath);
+    // console.log(requestedPath);
     const expandedPath = expandHome(requestedPath);
     const absolute = path.isAbsolute(expandedPath)
         ? path.resolve(expandedPath)
@@ -202,13 +201,12 @@ wss.on('connection', (ws) => {
                         break;
 
                     case "call_tool":
-                        console.log('Called the tool...');
                         const { name, arguments: args } = params;
                         console.log(args.path);
                         switch (name) {
                             case "read_file": {
                                 const validPath = await validatePath(args.path);
-                                console.log(validPath);
+                                // console.log(validPath);
                                 const content = await fs.readFile(validPath, "utf-8");
                                 response.result = {
                                     content: [{ type: "text", text: content }]
@@ -224,7 +222,6 @@ wss.on('connection', (ws) => {
                                 break;
                             }
                             case "list_directory": {
-                                console.log('listing...');
                                 const validPath = await validatePath(args.path);
                                 const entries = await fs.readdir(validPath, { withFileTypes: true });
                                 const formatted = entries
@@ -245,7 +242,7 @@ wss.on('connection', (ws) => {
                                 break;
                             }
                             case "create_directory": {
-                                console.log('Made it to dir creation..')
+                                // console.log('Made it to dir creation..')
                                 const newPathResult = await handleCreateDirectory(args.path, allowedDirectories);
                                 console.log(newPathResult); // Log the whole result to see the structure
                                 const { content } = newPathResult;
