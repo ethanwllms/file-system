@@ -31,7 +31,9 @@ This Python client allows you to interact with a WebSocket server designed for f
    ```
 3. Open new tab in terminal, change directory to fs-client:
    ```bash
-   ./setup.sh 
+   python -m venv venv
+   source venv/bin/activate
+   pip install -r requirements.txt
    ```
 
 4. You are ready to use the client!
@@ -97,3 +99,4 @@ python client.py [options] command [arguments]
 
 - Verify that the required Python packages are installed correctly.
 
+  - If you receive `Connection error: module 'websocket' has no attribute 'create_connection'` you may need to uninstall/re-install websocket-client via pip
