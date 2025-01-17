@@ -80,7 +80,7 @@ def main():
                 # print(type(result))
                 contents = result['result']['content'][0]['text']
                 # print(type(contents))
-                print("Directory contents:", contents)
+                print("Directory contents:\n", contents)
 
         elif args.command == 'read':
             if args.path is None:
@@ -88,7 +88,7 @@ def main():
             else:
                 result = client.call_tool("read_file", {"name": "read_file", "arguments": {"path": args.path}})
                 contents = result['result']['content'][0]['text']
-                print("File contents:", contents)
+                print("File contents:\n", contents)
 
         elif args.command == 'write':
             if args.path is None or args.content is None:
@@ -105,7 +105,7 @@ def main():
                 result = client.call_tool("search_files", {"name": "search_files", "arguments": {"path": args.path, "pattern": str(args.pattern)}})
                 contents = result['result']['content'][0]['text']
 
-                print("Search results:", contents)
+                print("Search results:\n", contents)
 
         elif args.command == 'create_dir':
             if args.path is None:
