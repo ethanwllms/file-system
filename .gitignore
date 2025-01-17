@@ -1,3 +1,5 @@
+.DS*
+
 fs-client/__pycache__/**
 fs-client/.pytest_cache
 fs-client/tests/integration/__pycache__/**
