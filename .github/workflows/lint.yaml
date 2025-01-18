@@ -19,7 +19,7 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v2
       with:
-        python-version: '3.9'  # You can specify any version you need
+        python-version: '3.9'
 
     - name: Install dependencies
       run: |
@@ -28,5 +28,5 @@ jobs:
 
     - name: Run Ruff Lint
       run: |
-        ls && pwd
-        ruff check fs-client/ --config /fs-client/pyproject.toml # Run ruff lint on the fs-client directory
+        ls /fs-client/ && pwd
+        ruff check fs-client/ --config /fs-client/pyproject.toml 
