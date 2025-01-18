@@ -15,6 +15,8 @@ pip install pytest
 
     - IMPORTANT! tests/integration/int_server.py needs to have the path updated within the test_create_directory function to reflect local file path, you can paste in the path from the allowed directories output from the server process.
 
+- start the file-system server
+
 ### Directory Structure
 Here's an example of how your project directory might be structured:
 
