@@ -1,6 +1,6 @@
 ## Running Pytest Tests with test.sh
 ### Overview
-This document provides instructions on how to run test suites using pytest along with the helper shell script test.sh. The script lets you specify which test suites to execute, allowing for flexible testing in various environments.
+This document provides instructions on how to run test suites using pytest along with the helper shell script test.sh. The script lets you specify which test suites to execute.
 
 ### Prerequisites
 - Python Installed: Ensure Python 3.x is installed on your system.
@@ -12,6 +12,8 @@ pip install pytest
 ```
 
 - test.sh Script: Ensure you have the test.sh script in your project directory. This script enables you to select which test suites to run.
+
+    - IMPORTANT! tests/integration/int_server.py needs to have the path updated within the test_create_directory function to reflect local file path, you can paste in the path from the allowed directories output from the server process.
 
 ### Directory Structure
 Here's an example of how your project directory might be structured:
