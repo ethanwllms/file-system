@@ -31,9 +31,7 @@ This Python client allows you to interact with a WebSocket server designed for f
    ```
 3. Open new tab in terminal, change directory to fs-client:
    ```bash
-   python -m venv venv
-   source venv/bin/activate
-   pip install -r requirements.txt
+   ./setup.sh
    ```
 
 4. You are ready to use the client!
