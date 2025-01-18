@@ -1,0 +1,47 @@
+name: Automated Client Testing
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'  # Specify the Node.js version you want to use
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.9'  # Specify the Python version you want to use
+
+    - name: Install server dependencies
+      run: |
+        cd fs-server/
+        npm install  # Install server dependencies
+
+    - name: Start the Node.js server
+      run: |
+        npm start ../fs-test/  # Start your server in the background
+        sleep 5  # Give the server some time to start
+
+    - name: Install dependencies
+      run: |
+        cd .. && cd fs-client
+        pip install --upgrade pip  # Upgrade pip to the latest version
+        pip install -r requirements.txt  # Install dependencies from requirements.txt
+
+    - name: Run Tests
+      run: |
+        python -m unittest discover -s tests  # Adjust the path to your test suite as needed
