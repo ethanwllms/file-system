@@ -45,4 +45,5 @@ jobs:
 
     - name: Run Tests
       run: |
-        python -m unittest discover -s tests  # Adjust the path to your test suite as needed
+        cd tests/
+        ./test.sh  # Adjust the path to your test suite as needed
