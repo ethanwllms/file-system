@@ -45,5 +45,6 @@ jobs:
 
     - name: Run Tests
       run: |
+        ls
         cd tests/
         ./test.sh  # Adjust the path to your test suite as needed
