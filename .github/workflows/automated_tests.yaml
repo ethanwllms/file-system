@@ -33,6 +33,7 @@ jobs:
 
     - name: Start the Node.js server
       run: |
+        cd fs-server/
         npm start ../fs-test/  # Start your server in the background
         sleep 5  # Give the server some time to start
 
