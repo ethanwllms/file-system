@@ -41,7 +41,7 @@ This Python client allows you to interact with a WebSocket server designed for f
 Run the client from the command line with the following syntax:
 
 ```
-python client.py [options] command [arguments]
+./run.sh
 ```
 
 ### Commands
