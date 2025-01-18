@@ -28,5 +28,5 @@ jobs:
 
     - name: Run Ruff Lint
       run: |
-        ls /fs-client/ && pwd
-        ruff check fs-client/ --config /fs-client/pyproject.toml 
+        cd /fs-client/ && pwd
+        ruff check 
