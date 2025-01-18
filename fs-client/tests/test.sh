@@ -1,12 +1,5 @@
 #!/bin/bash
 
-if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 <path>"
-    exit 1
-fi
-
-path_string="$1"
-
 while true; do
     echo "Please select an option:"
     echo "1. Run ALL tests"
