@@ -7,5 +7,6 @@ fs-client/tests/integration/.pytest_cache
 fs-client/tests/unit/__pycache__/**
 fs-client/tests/unit/.pytest_cache
 fs-client/venv/**
+fs-client/.ruff_cache/**
 
 fs-server/node_modules/** 

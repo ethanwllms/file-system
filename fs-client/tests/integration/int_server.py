@@ -40,11 +40,10 @@ class TestWebSocketClientIntegration(unittest.TestCase):
             client.close()
 
     def test_create_directory(self):
-    
         client = WebSocketClient('localhost', 8765)
         client.connect()
         try:
-            response = client.call_tool("create_directory", {"name": "create_directory", "arguments": {"path": "/users/ethanwilliams/documents/code/serverfarm/file-system-ws/fs-test/"}}) # noqa: E501
+            response = client.call_tool("create_directory", {"name": "create_directory", "arguments": {"path": "/users/ethanwilliams/documents/code/file-system/fs-test"}}) # noqa: E501
             expected_keys = ["jsonrpc", "id", "result"]
             for key in expected_keys:
                 self.assertIn(key, response)
